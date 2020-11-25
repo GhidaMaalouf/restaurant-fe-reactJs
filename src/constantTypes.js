@@ -1,0 +1,2 @@
+export const ROUTING_PAGE1='ROUTING_PAGE1';
+export const ROUTING_PAGE2='ROUTING_PAGE2';
