@@ -1,2 +1,5 @@
 export const ROUTING_PAGE1='ROUTING_PAGE1';
 export const ROUTING_PAGE2='ROUTING_PAGE2';
+
+export const GET_SEARCH="GET_SEARCH";
+export const REQUEST_SEARCH="REQUEST_SEARCH";

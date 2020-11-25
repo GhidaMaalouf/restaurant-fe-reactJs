@@ -9,7 +9,7 @@ import {ROUTING_PAGE1,ROUTING_PAGE2} from '../constantTypes';
 
 
 function NavigBar(){
-    //const dispatch=useDispatch();
+    const dispatch=useDispatch();
     return(
         <div>
             <AppBar position="static" color="default">
@@ -17,12 +17,12 @@ function NavigBar(){
                     <Grid container justify="center">
                         <Grid item xs={6} >
                             <Grid container>
-                                <Button > Page 1 </Button>
+                                <Button onClick={() => dispatch({type: ROUTING_PAGE1})} > Page 1 </Button>
                             </Grid>
                         </Grid>
                         <Grid item xs={6}>
-                            <Grid container justify="left">
-                                <Button >
+                            <Grid container justify="flex-start">
+                                <Button onClick={() => dispatch({type: ROUTING_PAGE2})}  >
                                     Page 2
                                 </Button>
                             </Grid>

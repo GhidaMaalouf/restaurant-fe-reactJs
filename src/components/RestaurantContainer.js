@@ -3,8 +3,11 @@ import Restaurant from './Restaurant';
 
 function RestaurantContainer(){
 	return(
-		<div> <Restaurant/>
+		<div> 
+		<Restaurant/>
 		</div>
 
 		)
 }
+
+export default RestaurantContainer;

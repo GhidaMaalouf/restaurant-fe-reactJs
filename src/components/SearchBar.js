@@ -9,8 +9,16 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import SearchIcon from '@material-ui/icons/Search';
+import { makeStyles } from '@material-ui/core/styles';
 
 const SearchBar = () => {
+  
+  const useStyles=makeStyles(theme=>({
+    button:{
+      padding: theme.spacing(1.5, 3)
+    }
+  }))
+  const classes =useStyles();
 	return (
     <div >
       <AppBar position="static" color="primary">
@@ -42,7 +50,7 @@ const SearchBar = () => {
             
         				<Grid item xs={12} sm={4}>
           					<Grid container justify="center">
-            					<Button variant="contained" color="secondary" position="center" size="large">
+            					<Button variant="contained" color="secondary" position="center" size="large" className={classes.button}>
             						<SearchIcon></SearchIcon>
             						Search
             					</Button>

@@ -4,14 +4,16 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
 
 function Restaurant(){
+	return(
 	<div>
 		<Grid container>
 			<Grid item align="center" xs={12} sm={6}>
 				<Card >
 					<CardActionArea>
-							Image
+							<Typography> Image </Typography>
 						<CardMedia />
 					</CardActionArea>
 					<CardActions>
@@ -24,7 +26,7 @@ function Restaurant(){
 				</Card>
 			</Grid>
 		</Grid>
-	</div>
+	</div>)
 }
 
 export default Restaurant;

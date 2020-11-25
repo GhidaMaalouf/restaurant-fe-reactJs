@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import sagaStore from './sagaStore';
+import {Provider} from 'react-redux';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={sagaStore}>
     <App />
-  </React.StrictMode>,
+ </Provider>,
   document.getElementById('root')
 );
 
