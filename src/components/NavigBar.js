@@ -12,16 +12,16 @@ function NavigBar(){
     //const dispatch=useDispatch();
     return(
         <div>
-            <AppBar position="static">
-                <Toolbar color="primary">
-                    <Grid container>
-                        <Grid item xs={6} sm={12}>
+            <AppBar position="static" color="default">
+                <Toolbar >
+                    <Grid container justify="center">
+                        <Grid item xs={6} >
                             <Grid container>
                                 <Button > Page 1 </Button>
                             </Grid>
                         </Grid>
-                        <Grid item xs={6} sm={12}>
-                            <Grid container>
+                        <Grid item xs={6}>
+                            <Grid container justify="left">
                                 <Button >
                                     Page 2
                                 </Button>

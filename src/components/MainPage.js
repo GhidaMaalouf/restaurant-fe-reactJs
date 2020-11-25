@@ -8,8 +8,7 @@ function MainPage(){
 	return(
 		<div>
 			<NavigBar/>
-			<Page1
-			></Page1>
+			<Page1></Page1>
 			<Page2></Page2>
 		</div>
 		)

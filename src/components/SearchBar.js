@@ -13,18 +13,18 @@ import SearchIcon from '@material-ui/icons/Search';
 const SearchBar = () => {
 	return (
     <div >
-      <AppBar position="static" color="default">
+      <AppBar position="static" color="primary">
         	<Toolbar >
       			<Grid container >
         			<Grid item xs={12} sm={4}>
           				<Grid container>
-            				<TextField label="Search" variant="outlined" color="primary" size="medium"/>
+            				<TextField label="Search" fullWidth variant="outlined" style={{backgroundColor:"white"}} color="primary" size="medium"/>
           				</Grid>
         			</Grid>
             
         				<Grid item xs={12} sm={4}>
           					<Grid container justify="center">
-            					<FormControl variant="outlined" >
+            					<FormControl style={{backgroundColor:"white"}} variant="outlined" >
               							<InputLabel >Types</InputLabel>
                 							<Select native label="Type">
                   								<option aria-label="None" />
