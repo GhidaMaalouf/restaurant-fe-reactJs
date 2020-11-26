@@ -11,6 +11,7 @@ function Page2(){
 					Visited Restaurants
 				</Toolbar>
 			</AppBar>
+			<br/>
 			<VisitedTable/>
 		</div>
 

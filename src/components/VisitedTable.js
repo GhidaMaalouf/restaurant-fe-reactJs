@@ -14,14 +14,24 @@ import { withStyles } from '@material-ui/core/Styles';
 
 function VisitedTable(){
 	const Cell = withStyles((theme) => ({
-  head: {
-    backgroundColor: "black",
-    color: "white",
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
+          head: {
+                    backgroundColor: "#eceff1",
+                    color: "black",
+                },
+            body: {
+                    fontSize: 14,
+                  },
+        }))(TableCell);
+
+    const Row =withStyles((theme)=>({
+        root: {
+            '&:nth-of-type(odd)' : {
+                backgroundColor:'white',
+                
+            },
+        },
+        }))(TableRow);
+
 	return(
 		<div>
              <Grid container justify="center">
@@ -36,7 +46,12 @@ function VisitedTable(){
                         		</TableRow>
                         	</TableHead>
                         	<TableBody>
-                            	
+                            	<Row>
+                                    <Cell align="center"> Name
+                                    </Cell>
+                                    <Cell align="center"> Date
+                                    </Cell>
+                                </Row>
                         	</TableBody>
                     	</Table>
                 	</TableContainer>
