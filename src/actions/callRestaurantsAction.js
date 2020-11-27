@@ -9,6 +9,6 @@ export const requestAllRestaurants = () => {
 export const getAllRestaurants=(data)=>{
 	return({
 		type: GET_RESTAURANTS,
-		data:data
+		data: data
 	})
 }

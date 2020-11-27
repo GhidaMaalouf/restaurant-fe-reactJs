@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-
+import {useEffect} from 'react';
+import { REQUEST_VISITED_RESTAURANTS } from '../constantTypes';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,56 +9,83 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Backdrop from '@material-ui/core/Backdrop';
+import { withStyles,makeStyles } from '@material-ui/core/Styles';
+import {useSelector, useDispatch} from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { withStyles } from '@material-ui/core/Styles';
+import visitLogReducer from '../reducers/visitLogReducer';
+import loadReducer from '../reducers/loadReducer';
 
-function VisitedTable(){
-	const Cell = withStyles((theme) => ({
-          head: {
-                    backgroundColor: "#eceff1",
-                    color: "black",
+const style= makeStyles({
+    grid:{
+        width:'70%',
+        margin:'0px'
+    }
+})
+
+const Cell = withStyles((theme) => ({
+        head: {
+                backgroundColor: "#eceff1",
+                color: "black",
                 },
-            body: {
-                    fontSize: 14,
-                  },
+         body: {
+                fontSize: 14,
+                },
         }))(TableCell);
 
-    const Row =withStyles((theme)=>({
-        root: {
-            '&:nth-of-type(odd)' : {
-                backgroundColor:'white',
-                
+const Row =withStyles((theme)=>({
+    root: {
+        '&:nth-of-type(odd)' : {
+        backgroundColor:'white',
             },
         },
-        }))(TableRow);
+    }))(TableRow);
 
-	return(
-		<div>
-             <Grid container justify="center">
-                <Grid item xs={11} sm={5} align="center">
-                	<TableContainer >
-                    	<Table aria-label="customized table">
-                        	<TableHead>
-                        		<TableRow>
-                        			<Cell align="center"> Name </Cell>
-                        			<Cell align="center"> Visit Date </Cell>
+function VisitedTable(){
+    const classes=style()
+    const load=useSelector((state) => state.loadReducer)
+    const visit = useSelector((state) => state.visitLogReducer);
+    const dispatch = useDispatch();
 
-                        		</TableRow>
-                        	</TableHead>
-                        	<TableBody>
-                            	<Row>
-                                    <Cell align="center"> Name
-                                    </Cell>
-                                    <Cell align="center"> Date
-                                    </Cell>
-                                </Row>
-                        	</TableBody>
-                    	</Table>
-                	</TableContainer>
+    useEffect(() => {
+        dispatch({type: REQUEST_VISITED_RESTAURANTS})
+    }, [])
+    
+    if(load){
+        return(
+            <Backdrop open>
+                <CircularProgress color='inherit'/>
+            </Backdrop>
+            )}
+    else{
+	    return(
+		    <div>
+                 <Grid container className={classes.grid} justify="center">
+                    <Grid item xs={12} sm={6} align="center">
+                	    <TableContainer component={Paper}>
+                    	    <Table aria-label="customized table">
+                        	    <TableHead>
+                        		    <TableRow>
+                        			    <Cell align="center"> Name </Cell>
+                        			    <Cell align="center"> Visit Date </Cell>
+                                    </TableRow>
+                        	    </TableHead>
+                        	        <TableBody>
+                                        {visit.map(log=>(
+                                            <Row key={log.id}>
+                                                <Cell align="center"> 
+                                                        NAME
+                                                </Cell>
+                                                <Cell align="center"> {log.date}
+                                                </Cell>
+                                            </Row>
+                                        ))}
+                            	    </TableBody>
+                    	        </Table>
+                	    </TableContainer>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </div>
-		)
+            </div>
+		)}
 }
 
 export default VisitedTable;
