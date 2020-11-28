@@ -2,6 +2,7 @@ import Restaurant from './Restaurant';
 import { requestAllRestaurants } from '../actions/callRestaurantsAction';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import  ModalDialog from './ModalDialog';
 
 function RestaurantContainer(){
 	const dispatch = useDispatch();
@@ -11,6 +12,7 @@ function RestaurantContainer(){
 
 	return(
 		<div> 
+		<ModalDialog/>
 		<Restaurant/>
 		</div>
 

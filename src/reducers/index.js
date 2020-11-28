@@ -4,6 +4,8 @@ import searchReducer from './searchReducer';
 import callRestaurantsReducer from './callRestaurantsReducer';
 import loadReducer from './loadReducer';
 import visitLogReducer from './visitLogReducer';
+import pageReducer from './pageReducer';
+
 
 const rootReducer= combineReducers({
 		pageRoutingReducer,

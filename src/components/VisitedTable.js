@@ -12,8 +12,6 @@ import Backdrop from '@material-ui/core/Backdrop';
 import { withStyles,makeStyles } from '@material-ui/core/Styles';
 import {useSelector, useDispatch} from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import visitLogReducer from '../reducers/visitLogReducer';
-import loadReducer from '../reducers/loadReducer';
 
 const style= makeStyles({
     grid:{
@@ -48,7 +46,7 @@ function VisitedTable(){
 
     useEffect(() => {
         dispatch({type: REQUEST_VISITED_RESTAURANTS})
-    }, [])
+    }, []);
     
     if(load){
         return(
