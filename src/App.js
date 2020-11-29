@@ -1,5 +1,6 @@
 import './App.css';
 import MainPage from './components/MainPage';
+import SnackbarError from './components/SnackbarError';
 import { MuiThemeProvider, createMuiTheme} from '@material-ui/core';
 
 
@@ -16,6 +17,7 @@ const theme=createMuiTheme({
 function App() {
   return (
    	<MuiThemeProvider theme={theme}>
+   		<SnackbarError/>
     	<MainPage> </MainPage>
     </MuiThemeProvider>
   );

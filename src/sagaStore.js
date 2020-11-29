@@ -7,8 +7,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware)); 
 
-sagaMiddleware.run(syncAll);
 sagaMiddleware.run(syncVisited);
+sagaMiddleware.run(syncAll);
 sagaMiddleware.run(syncCheck);
 sagaMiddleware.run(syncSearch);
 

@@ -43,11 +43,12 @@ function VisitedTable(){
     const load=useSelector((state) => state.loadReducer)
     const visit = useSelector((state) => state.visitLogReducer);
     const dispatch = useDispatch();
-
+   
     useEffect(() => {
         dispatch({type: REQUEST_VISITED_RESTAURANTS})
     }, []);
     
+
     if(load){
         return(
             <Backdrop open>
@@ -55,7 +56,9 @@ function VisitedTable(){
             </Backdrop>
             )}
     else{
+
 	    return(
+           
 		    <div>
                  <Grid container className={classes.grid} justify="center">
                     <Grid item xs={12} sm={6} align="center">
@@ -69,10 +72,13 @@ function VisitedTable(){
                         	    </TableHead>
                         	        <TableBody>
                                         {visit.map(log=>(
+
                                             <Row key={log.id}>
                                                 <Cell align="center"> 
-                                                        NAME                                                </Cell>
-                                                <Cell align="center"> {log.date}
+                                                        {log.name}                                                
+                                                </Cell>
+                                                <Cell align="center"> 
+                                                        {log.dateFormat}
                                                 </Cell>
                                             </Row>
                                         ))}
@@ -82,6 +88,7 @@ function VisitedTable(){
                     </Grid>
                 </Grid>
             </div>
+            
 		)}
 }
 

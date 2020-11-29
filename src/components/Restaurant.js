@@ -21,7 +21,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
-import uuid from 'react-uuid'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -110,7 +110,7 @@ function Restaurant(){
 	const currentPageNumb=useSelector((state)=>state.pageReducer);
 	const [nbRestPerPage]=useState(4);
 	
-	const indexLastRest = currentPageNumb * nbRestPerPage;
+	  const indexLastRest = currentPageNumb * nbRestPerPage;
     const indexOfFirstResto = indexLastRest - nbRestPerPage;
     const currentRestaurants = restaurants.slice(indexOfFirstResto, indexLastRest);
 
@@ -119,6 +119,21 @@ function Restaurant(){
     }
 
 
+
+    const actionChange = (e) => {
+         if (e.target.checked){
+            const today =+ new Date();
+            
+            let obj={};
+            for(let rest of restaurants){
+              if(rest.id===e.target.value){
+                  obj=rest;
+              }
+            }
+            let restaurant = { "date": today ,"restaurant": obj} ;
+            dispatch(addVisitedRest(restaurant));
+        }
+    }
     const[open,setOpen] =useState(false);
   	const [currentRest,setCurrentRest]= useState({});
   	const clickOpen = () => { 
@@ -129,18 +144,7 @@ function Restaurant(){
  	 }
   	const close=()=>{setOpen(false)};
 
-  	const getName=()=>{
-
-  	}
-
-  	const actionChange = (e) => {
-       	if (e.target.checked){
-            const today =+ new Date();
-            let restaurant = { "date": today , "id": uuid(),"restaurantId": e.target.value} ;
-            dispatch(addVisitedRest(restaurant));
-            console.log(restaurant);
-        }
-    }
+  	
 
 
 	if(load){
@@ -153,36 +157,36 @@ function Restaurant(){
 	}else{
 		return(
 
-		<div>
-			<div>
-				<Grid container className={classes.grid}>
-					{currentRestaurants.map(rest=>(
-						<Grid item align="center" xs={12} sm={6} key={rest.id}>
-							<Card className={classes.root}>
-								<CardActionArea onClick={ () =>{ clickOpen();
+		  <div>
+			  <div>
+				  <Grid container className={classes.grid}>
+					  {currentRestaurants.map(rest=>(
+						  <Grid item align="center" xs={12} sm={6} key={rest.id}>
+							  <Card className={classes.root}>
+								  <CardActionArea onClick={ () =>{ clickOpen();
 																 handleCurrent(rest);}}>
-									<CardMedia className={classes.media} image={rest.imagePath}/>
-								</CardActionArea>
-								<CardActions className={classes.card}>
-									<Typography  variant="h5">
-										{rest.restaurantName}
-									</Typography>
-									<FormControl component="fieldset">
-                        				<FormGroup aria-label="position" row>
-                            				<FormControlLabel id={rest.name} value={rest.id} control={ <Checkbox className={classes.check}/> } label="Tick if visited" labelPlacement="start" onChange={actionChange} />
-                        				</FormGroup>
-                    				</FormControl>
-								</CardActions>
-							</Card>
-						</Grid>
-					))}
-				</Grid>
-			</div>
+									  <CardMedia className={classes.media} image={rest.imagePath}/>
+								  </CardActionArea>
+								  <CardActions className={classes.card}>
+									  <Typography  variant="h5">
+										    {rest.restaurantName}
+									  </Typography>
+									  <FormControl component="fieldset">
+                        	<FormGroup aria-label="position" row>
+                            	<FormControlLabel id={rest.id} value={rest.id} control={ <Checkbox className={classes.check}/> } label="Tick if visited" labelPlacement="start" onChange={actionChange} />
+                        	</FormGroup>
+                    </FormControl>
+								  </CardActions>
+							  </Card>
+						  </Grid>
+					  ))}
+				  </Grid>
+			  </div>
 			
 			<Grid container spacing={0} direction="column" alignItems="center" justify="center">
 				<Grid item xs={12}>
-              		<Pagination onChange={paginate} showFirstButton showLastButton variant="outlined" shape="rounded"/>
-            	</Grid>   
+            <Pagination count={Math.ceil(restaurants.length / nbRestPerPage)} onChange={paginate}  showFirstButton showLastButton variant="outlined" shape="rounded"/>
+        </Grid>   
 			</Grid>
 			<Dialog onClose={close} maxWidth="lg" aria-labelledby="customized-dialog-title" open={open}>
         		<Title id="customized-dialog-title" onClose={close}/>

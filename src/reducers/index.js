@@ -7,7 +7,7 @@ import visitLogReducer from './visitLogReducer';
 import pageReducer from './pageReducer';
 import showRestReducer from './showRestReducer';
 import postVisitedReducer from './postVisitedReducer';
-
+import errorReducer from './errorReducer';
 
 const rootReducer= combineReducers({
 		pageRoutingReducer,
@@ -17,7 +17,8 @@ const rootReducer= combineReducers({
 		visitLogReducer,
 		showRestReducer,
 		pageReducer,
-		postVisitedReducer
+		postVisitedReducer,
+		errorReducer
 	});
 
 export default rootReducer;
