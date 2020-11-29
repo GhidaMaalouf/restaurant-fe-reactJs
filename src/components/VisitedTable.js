@@ -71,8 +71,7 @@ function VisitedTable(){
                                         {visit.map(log=>(
                                             <Row key={log.id}>
                                                 <Cell align="center"> 
-                                                        NAME
-                                                </Cell>
+                                                        NAME                                                </Cell>
                                                 <Cell align="center"> {log.date}
                                                 </Cell>
                                             </Row>

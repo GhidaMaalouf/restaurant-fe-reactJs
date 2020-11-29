@@ -5,6 +5,8 @@ import callRestaurantsReducer from './callRestaurantsReducer';
 import loadReducer from './loadReducer';
 import visitLogReducer from './visitLogReducer';
 import pageReducer from './pageReducer';
+import showRestReducer from './showRestReducer';
+import postVisitedReducer from './postVisitedReducer';
 
 
 const rootReducer= combineReducers({
@@ -12,7 +14,10 @@ const rootReducer= combineReducers({
 		searchReducer,
 		callRestaurantsReducer,
 		loadReducer,
-		visitLogReducer
+		visitLogReducer,
+		showRestReducer,
+		pageReducer,
+		postVisitedReducer
 	});
 
 export default rootReducer;

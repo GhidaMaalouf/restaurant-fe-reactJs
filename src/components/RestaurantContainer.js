@@ -12,8 +12,7 @@ function RestaurantContainer(){
 
 	return(
 		<div> 
-		<ModalDialog/>
-		<Restaurant/>
+			<Restaurant/>
 		</div>
 
 		)

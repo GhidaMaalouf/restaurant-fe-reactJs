@@ -9,6 +9,7 @@ function MainPage(){
 	return(
 		<div>
 			<NavigBar/>
+			<br/>
 			{page ? <Page1/> : <Page2/> }
 		</div>
 		)

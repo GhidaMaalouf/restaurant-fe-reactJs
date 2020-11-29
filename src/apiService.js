@@ -22,3 +22,17 @@ export const getAllVisits= async () => {
 		console.log("Error to get Visited Restaurants"+e);
 	}
 }
+
+export const postVisited = async (data) => {
+    try{
+		const resp= await Axios.post("http://localhost:8080/v1/restaurants/add-visited-restaurant",
+            data
+
+        )
+
+    }catch(e){
+        console.log(e)
+    }
+}
+
+

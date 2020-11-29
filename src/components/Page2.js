@@ -15,7 +15,7 @@ function Page2(){
 			<VisitedTable/>
 		</div>
 
-		)
+	)
 }
 
 export default Page2;

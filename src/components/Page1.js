@@ -7,6 +7,7 @@ function Page1(){
     return(
     	<div>
     		<SearchBar/>
+    		<br/>
     		<RestaurantContainer/>
     	</div>
     	)
